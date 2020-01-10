@@ -1,8 +1,5 @@
 # notify-send
-Ditch your bloated notification daemon
-
-# Purpose
-Send notifications from shell scripts or the command line
+Send notifications from shell scripts or the command line without a notification server
 
 # What you need
 0. GNU/Linux operating system and this script
