@@ -1,5 +1,5 @@
 # notify-send
-Send notifications from shell scripts or the command line without a notification server
+Send notifications without a notification server
 
 # What you need
 0. GNU/Linux operating system and this script
