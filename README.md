@@ -18,5 +18,7 @@ $ sudo chmod a+x /usr/local/bin/notify-send
 Note: If your operating system is not Debian-like, adjust the first step
 
 # Usage
-The script takes three arguments: Notification name (a string), notification message (a string), and timeout in seconds (an integer). Third argument is optional (default timeout is 2 seconds). For example:
-`$ notify-send "This is the title" "An important mesage" 4`
+The script takes three arguments: Notification title (a string), notification message (a string), and timeout in seconds (an integer). Third argument is optional (default timeout is 2 seconds). For example:
+```
+$ notify-send "screensaver-toggler" "Screensaver is off" 4
+```
