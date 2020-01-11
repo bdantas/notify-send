@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# notify-send v5.0
+# notify-send v5.5
 # Bruno GNUser Dantas GPLv3
 
 # user variables:
@@ -18,23 +18,28 @@ main()
 
 parse_args()
 {
-	if [ $# -lt 2 ]; then
-		echo "Usage: $(basename $0) <title> <message> [<timeout>]"
-		echo "Example: $(basename $0) 'An important message' 'Keep it simple!' 5"
-		exit
-	fi
+	[ $# -lt 2 ] && show_usage
 
 	title="$1"
 	message="$2"
 	timeout=${3:-2} # use arg3 or default 2 secs
 }
 
+show_usage()
+{
+	echo "Usage: $(basename $0) <title> <message> [<timeout>]"
+	echo "Example: $(basename $0) 'An important message' 'Keep it simple!' 5"
+	exit
+}
+
 create_notification()
 {
-	box_px=$(( char_px * desired_box_char )) # box width in pixels
-
 	(echo "$title"; echo ' '; echo "$message" | fold -s -w $desired_box_char) | 
 	dzen2 -bg black -fg white -tw $box_px -w $box_px -fn "$font" -l 5 -e 'onstart=uncollapse' -x $x_pos -y $y_pos -p $timeout
+	exit
 }
+
+# internal variables:
+box_px=$(( char_px * desired_box_char )) # box width in pixels
 
 main "$@"
